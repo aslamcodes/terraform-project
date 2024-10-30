@@ -4,16 +4,9 @@ resource "aws_security_group" "server_sg" {
   name        = "server_sg"
 }
 
-resource "aws_security_group_rule" "http_all" {
-  type              = "ingress"
-  from_port         = 80
-  to_port           = 80
-  protocol          = "tcp"
-  cidr_blocks       = ["0.0.0.0/0"]
-  security_group_id = aws_security_group.server_sg.id
-}
 
 resource "aws_security_group_rule" "allow_ssh" {
+  description       = "Allows office devices"
   type              = "ingress"
   from_port         = 22
   to_port           = 22
@@ -23,6 +16,7 @@ resource "aws_security_group_rule" "allow_ssh" {
 }
 
 resource "aws_security_group_rule" "allow_all_egress" {
+  description       = "Allows all egress"
   type              = "egress"
   from_port         = 0
   to_port           = 0

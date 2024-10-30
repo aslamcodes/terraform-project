@@ -5,6 +5,7 @@ resource "aws_security_group" "rds_sg" {
 }
 
 resource "aws_security_group_rule" "allow_ec2" {
+  description       = "Allow's CIDRs of ${var.ingress_cidrs[*]}"
   type              = "ingress"
   from_port         = 3306
   to_port           = 3306
@@ -16,6 +17,7 @@ resource "aws_security_group_rule" "allow_ec2" {
 
 
 resource "aws_security_group_rule" "allow_all_egress" {
+  description       = "Allows all egress"
   type              = "egress"
   from_port         = 0
   to_port           = 0
