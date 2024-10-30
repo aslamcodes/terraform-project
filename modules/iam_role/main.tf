@@ -47,6 +47,6 @@ resource "aws_iam_role_policy_attachment" "attach_rds_policy" {
 
 
 resource "aws_iam_instance_profile" "ec2_instance_profile" {
-  name = "ec2-instance-profile"
+  name = "ec2_instance_profile"
   role = aws_iam_role.ec2_rds_access.name
 }

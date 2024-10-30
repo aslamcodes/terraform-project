@@ -1,3 +1,7 @@
+locals {
+  commit_hash = "4b236a32038fd5bc5ecd08f75c7906da59245915"
+}
+
 module "vpc_1" {
 
 
@@ -29,11 +33,7 @@ module "vpc_2" {
 
 module "vpc_peering" {
   depends_on = [module.vpc_1, module.vpc_2]
-
-
-
-  source = "git::ssh://git@gitlab.presidio.com/mohammedaslamm/tf-project.git//modules/vpc_peering_w_routes?ref=4df293531b2dc7ef8263d195750d71d724c88027"
-
+  source     = "git::ssh://git@gitlab.presidio.com/mohammedaslamm/tf-project.git//modules/vpc_peering_w_routes?ref=4df293531b2dc7ef8263d195750d71d724c88027"
 
   main_rtb_id    = module.vpc_1.public_rtb_id
   peering_rtb_id = module.vpc_2.public_rtb_id
