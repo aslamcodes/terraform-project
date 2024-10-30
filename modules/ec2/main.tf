@@ -21,7 +21,7 @@ data "aws_ami" "amazon_linux" {
 
 resource "aws_key_pair" "aslam_key" {
   public_key = file("~/.ssh/id_rsa.pub")
-  key_name   = "aslam_tf_key"
+  key_name   = "aslam_key"
 }
 
 resource "aws_instance" "instance" {

@@ -2,7 +2,7 @@
 
 
 resource "aws_iam_role" "ec2_rds_access" {
-  name = "ec2-rds-access-role"
+  name = "ec2_rds_access_role"
 
   assume_role_policy = jsonencode({
     "Version" : "2012-10-17",
@@ -20,7 +20,7 @@ resource "aws_iam_role" "ec2_rds_access" {
 
 
 resource "aws_iam_policy" "rds_access_policy" {
-  name        = "RDSAccessPolicy"
+  name        = "RDS_Access_Policy"
   description = "Policy for EC2 to access RDS resources"
 
   policy = jsonencode({
