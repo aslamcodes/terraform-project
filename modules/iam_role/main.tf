@@ -34,7 +34,7 @@ resource "aws_iam_policy" "rds_access_policy" {
           "rds:ListTagsForResource",
           "rds:Connect"
         ],
-        "Resource" : "*"
+        "Resource" : "${var.rds_arn}"
       }
     ]
   })

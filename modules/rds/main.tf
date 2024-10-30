@@ -25,3 +25,7 @@ resource "aws_db_instance" "aslam-rds" {
 output "rds_endpoint" {
   value = aws_db_instance.aslam-rds.endpoint
 }
+
+output "rds_arn" {
+  value = aws_db_instance.aslam-rds.arn
+}
